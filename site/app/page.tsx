@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <main>
       <header className="siteNav">
-        <a className="brand" href="#topo"><b>QiMO</b><small>Douro & Salamanca</small></a>
+        <a className="brand" href="#topo"><img className="logo" src="/images/logo-qimo.png" alt="QiMO" /><small>Douro & Salamanca</small></a>
         <nav className="navLinks">
           <a href="#roteiro">Roteiro</a>
           <a href="#barco">O Navio</a>
@@ -192,7 +192,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand" href="#topo"><b>QiMO</b><small>Douro & Salamanca · 2027</small></a>
+        <a className="brand" href="#topo"><img className="logo" src="/images/logo-qimo.png" alt="QiMO" /><small>Douro & Salamanca · 2027</small></a>
         <div className="fContact">
           <span>Contato · Carla Perdigão</span>
           <a href={WA} target="_blank" rel="noreferrer">(21) 99971-7040</a><br />

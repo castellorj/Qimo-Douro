@@ -48,8 +48,9 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
   background:linear-gradient(to bottom,rgba(13,44,55,.6),rgba(13,44,55,.25) 55%,transparent);
   transition:background .5s ease;
 }
-.brand{display:flex;align-items:baseline;gap:14px}
+.brand{display:flex;align-items:center;gap:14px}
 .brand b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.12em}
+.brand .logo{width:auto;height:26px;object-fit:contain}
 .brand small{text-transform:uppercase;letter-spacing:.22em;font-size:9px;opacity:.8;border-left:1px solid currentColor;padding-left:14px}
 .navLinks{display:flex;gap:34px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400}
 .navLinks a{opacity:.85;transition:opacity .3s}
