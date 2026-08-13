@@ -1,0 +1,20 @@
+# Dependências e caches
+node_modules/
+**/node_modules/
+.npm-cache/
+**/.npm-cache/
+
+# Artefatos de build (vinext / Next / Cloudflare)
+site/dist/
+site/.next/
+site/.vinext/
+site/.wrangler/
+**/.wrangler/
+**/*.log
+
+# Empacotamentos
+site/outputs/
+
+# Sistema
+.DS_Store
+Thumbs.db

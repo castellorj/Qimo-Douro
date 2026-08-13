@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap');
+
+:root{
+  --deep:#123c4a;
+  --deep2:#0d2c37;
+  --offwhite:#f6fbfc;
+  --sand:#e4eff0;
+  --sand2:#d3e4e6;
+  --gold:#c69a5b;
+  --gold2:#e0c089;
+  --ink:#123c4a;
+  --muted:#5c7680;
+  --line:#c9dbde;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--offwhite);
+  color:var(--ink);
+  font-family:'Figtree',system-ui,Arial,sans-serif;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+button{font-family:inherit}
+
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400}
+
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.32em;
+  font-size:10px;
+  font-weight:500;
+  color:var(--gold);
+}
+.wrap{max-width:1240px;margin:0 auto}
+
+/* ---------- NAV ---------- */
+.siteNav{
+  position:fixed;z-index:50;top:0;left:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 6vw;color:#fff;
+  background:linear-gradient(to bottom,rgba(13,44,55,.6),rgba(13,44,55,.25) 55%,transparent);
+  transition:background .5s ease;
+}
+.brand{display:flex;align-items:baseline;gap:14px}
+.brand b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.12em}
+.brand small{text-transform:uppercase;letter-spacing:.22em;font-size:9px;opacity:.8;border-left:1px solid currentColor;padding-left:14px}
+.navLinks{display:flex;gap:34px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+.navLinks a{opacity:.85;transition:opacity .3s}
+.navLinks a:hover{opacity:1}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100svh;min-height:640px;color:#fff;overflow:hidden}
+.hero picture,.hero picture img{position:absolute;inset:0;height:100%}
+.hero img{animation:slowZoom 20s ease-out both}
+.heroShade{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 50% 30%,transparent 30%,rgba(9,32,40,.55)),
+  linear-gradient(to top,rgba(9,32,40,.78),rgba(9,32,40,.12) 45%,rgba(9,32,40,.35))}
+.heroInner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.hero .kicker{color:var(--gold2)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(52px,9vw,132px);line-height:.92;letter-spacing:-.01em;
+  margin:20px 0 18px;
+}
+.hero h1 em{color:var(--gold2)}
+.heroDek{max-width:520px;font-size:16px;line-height:1.7;color:#ffffffde;font-weight:300}
+.heroScroll{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:2;text-transform:uppercase;letter-spacing:.28em;font-size:8px;color:#ffffffcc;display:flex;flex-direction:column;align-items:center;gap:10px}
+.heroScroll i{display:block;width:1px;height:42px;background:linear-gradient(#fff,transparent)}
+
+/* ---------- SECTION SHELL ---------- */
+.section{padding:120px 6vw}
+.sectionHead{max-width:760px}
+.sectionHead h2{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(40px,5.5vw,78px);line-height:.98;letter-spacing:-.01em;
+  margin:18px 0 0;
+}
+.sectionHead h2 em{color:var(--gold)}
+.sectionHead p{margin:22px 0 0;max-width:560px;font-size:16px;line-height:1.8;color:var(--muted)}
+.rule{width:46px;height:2px;background:var(--gold);margin:26px 0 0}
+
+/* ---------- ROTEIRO ---------- */
+.itinerary{background:var(--offwhite)}
+.dayRow{
+  display:flex;gap:26px;margin-top:64px;padding:4px 6vw 30px;
+  margin-left:-6vw;margin-right:-6vw;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+.dayRow::-webkit-scrollbar{display:none}
+.dayCard{
+  position:relative;flex:0 0 78vw;max-width:340px;aspect-ratio:4/5;
+  border-radius:14px;overflow:hidden;background:var(--deep);color:#fff;
+  scroll-snap-align:center;cursor:pointer;
+}
+.dayCard img{position:absolute;inset:0;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.dayCard:hover img{transform:scale(1.06)}
+.dayCard .cardShade{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,32,40,.9),rgba(9,32,40,.15) 55%,transparent)}
+.dayCard .cardInfo{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
+.dayCard .cardInfo span{text-transform:uppercase;letter-spacing:.24em;font-size:9px;color:var(--gold2)}
+.dayCard .cardInfo h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;margin:8px 0 14px}
+.dayCard .more{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.16em;font-size:9px;color:#fff;opacity:.85}
+.dayCard .cardBody{
+  position:absolute;inset:0;z-index:3;background:rgba(13,44,55,.94);
+  padding:30px 26px;display:flex;flex-direction:column;justify-content:flex-end;
+  opacity:0;pointer-events:none;transition:opacity .45s ease;
+}
+.dayCard.open .cardBody{opacity:1;pointer-events:auto}
+.dayCard .cardBody span{text-transform:uppercase;letter-spacing:.24em;font-size:9px;color:var(--gold2)}
+.dayCard .cardBody h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin:8px 0 16px}
+.dayCard .cardBody p{font-size:14px;line-height:1.8;color:#ffffffdd;margin:0}
+.dayCard .cardBody .more{margin-top:22px}
+.dayHint{margin-top:6px;text-align:right;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:var(--muted)}
+
+/* ---------- O NAVIO ---------- */
+.ship{background:var(--sand);display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.shipImg{position:relative;min-height:560px;overflow:hidden}
+.shipImg span{position:absolute;left:26px;bottom:26px;z-index:2;color:#fff;text-transform:uppercase;letter-spacing:.2em;font-size:9px;background:rgba(13,44,55,.72);padding:12px 18px;border-radius:100px}
+.shipCopy{padding:110px 6vw}
+.shipCopy h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(44px,5vw,74px);line-height:1;margin:18px 0 0}
+.shipCopy>p{margin:24px 0 0;max-width:520px;font-size:16px;line-height:1.85;color:var(--muted)}
+.shipStats{display:flex;flex-wrap:wrap;gap:38px;margin:40px 0}
+.shipStats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:40px;color:var(--deep);line-height:1}
+.shipStats span{text-transform:uppercase;letter-spacing:.16em;font-size:9px;color:var(--muted)}
+.shipList{list-style:none;padding:0;margin:0;border-top:1px solid var(--sand2)}
+.shipList li{border-bottom:1px solid var(--sand2);padding:15px 0;font-size:13px;letter-spacing:.02em;display:flex;gap:14px;align-items:center}
+.shipList li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex:0 0 auto}
+
+/* ---------- GALERIA ---------- */
+.gallery{background:var(--deep);color:#fff}
+.gallery .kicker{color:var(--gold2)}
+.gallery .sectionHead h2{color:#fff}
+.gallery .sectionHead p{color:#ffffffb0}
+.galleryGrid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:60px}
+.galleryGrid figure{margin:0;position:relative;overflow:hidden;border-radius:12px}
+.galleryGrid img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.galleryGrid figure:hover img{transform:scale(1.05)}
+.g1{grid-column:span 7;height:440px}
+.g2{grid-column:span 5;height:440px}
+.g3{grid-column:span 4;height:360px}
+.g4{grid-column:span 4;height:360px}
+.g5{grid-column:span 4;height:360px}
+
+/* ---------- VALORES / CABINES ---------- */
+.cabins{background:var(--offwhite)}
+.cabinGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.cabinCard{
+  border:1px solid var(--line);border-radius:14px;padding:34px 30px;background:#fff;
+  display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s;
+}
+.cabinCard:hover{border-color:var(--gold);box-shadow:0 22px 50px rgba(18,60,74,.08)}
+.cabinCard .deck{text-transform:uppercase;letter-spacing:.18em;font-size:9px;color:var(--gold)}
+.cabinCard h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin:12px 0 6px}
+.cabinCard .desc{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 24px}
+.cabinCard .price{margin-top:auto;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;color:var(--deep)}
+.cabinCard .price small{display:block;font-family:'Figtree',sans-serif;font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.cabinCard.feature{background:var(--deep);border-color:var(--deep);color:#fff}
+.cabinCard.feature .deck{color:var(--gold2)}
+.cabinCard.feature .desc{color:#ffffffc0}
+.cabinCard.feature .price{color:#fff}
+.cabinCard.feature .price small{color:#ffffff99}
+.payment{
+  margin-top:34px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;
+  background:var(--sand);border-radius:14px;padding:34px 38px;
+}
+.payment p{margin:0;font-size:14px;line-height:1.8;color:var(--deep)}
+.payment strong{font-weight:500;color:var(--deep)}
+.payment .badge{text-align:center;background:var(--gold);color:#fff;border-radius:12px;padding:22px}
+.payment .badge b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;line-height:1}
+.payment .badge span{text-transform:uppercase;letter-spacing:.14em;font-size:9px}
+
+/* ---------- DÚVIDAS ---------- */
+.faq{background:var(--sand)}
+.faqList{margin-top:56px;border-top:1px solid var(--sand2)}
+.faqItem{border-bottom:1px solid var(--sand2)}
+.faqItem button{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left;
+  font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--deep);
+}
+.faqItem button b{font-family:'Figtree',sans-serif;font-weight:300;font-size:26px;color:var(--gold);flex:0 0 auto}
+.faqItem p{margin:0 0 26px;max-width:720px;font-size:15px;line-height:1.85;color:var(--muted)}
+.faqItem p{display:none}
+.faqItem.open p{display:block}
+
+/* ---------- CLOSING ---------- */
+.closing{position:relative;height:88vh;min-height:600px;color:#fff;overflow:hidden}
+.closing img{position:absolute;inset:0;height:100%}
+.closing .closingShade{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,32,40,.8),rgba(9,32,40,.4))}
+.closingInner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.closing .kicker{color:var(--gold2)}
+.closing h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(46px,7vw,104px);line-height:.95;margin:18px 0 34px}
+.closing h2 em{color:var(--gold2)}
+.cta{
+  display:inline-flex;align-items:center;gap:16px;
+  background:var(--gold);color:#0d2c37;font-weight:500;
+  padding:18px 30px;border-radius:100px;
+  text-transform:uppercase;letter-spacing:.16em;font-size:11px;
+  transition:transform .3s,background .3s;
+}
+.cta:hover{transform:translateY(-2px);background:var(--gold2)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--deep2);color:#ffffffb0;padding:60px 6vw;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
+footer .brand b{color:#fff}
+footer .fContact{text-align:right;font-size:12px;line-height:1.9;letter-spacing:.04em}
+footer .fContact a{color:var(--gold2)}
+footer .fContact span{display:block;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:#ffffff70;margin-bottom:6px}
+
+/* ---------- MOTION ---------- */
+@keyframes slowZoom{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero img{animation:none}}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .navLinks{display:none}
+  .section{padding:84px 24px}
+  .ship{grid-template-columns:1fr}
+  .shipImg{min-height:52vh;order:-1}
+  .shipCopy{padding:60px 24px}
+  .galleryGrid{grid-template-columns:1fr 1fr;gap:12px}
+  .g1,.g2{grid-column:span 2;height:56vw}
+  .g3,.g4,.g5{grid-column:span 1;height:44vw}
+  .cabinGrid{grid-template-columns:1fr;gap:14px}
+  .payment{grid-template-columns:1fr;text-align:center}
+  .payment .badge{max-width:220px;margin:0 auto}
+  .dayRow{margin-left:-24px;margin-right:-24px;padding:4px 24px 24px}
+  .dayCard{flex-basis:80vw}
+  footer{flex-direction:column;text-align:center}
+  footer .fContact{text-align:center}
+}

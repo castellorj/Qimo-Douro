@@ -1,0 +1,21 @@
+# Deploy no Netlify — site estático servido a partir de netlify-static/
+# Nenhum passo de build é necessário.
+[build]
+  publish = "netlify-static"
+  command = ""
+
+# Cache longo para imagens
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
