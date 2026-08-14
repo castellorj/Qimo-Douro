@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@300;400;500;600&display=swap');
-
+/* Tipografia: Instrument Serif (títulos, emoção) + DM Sans (funcional).
+   As fontes são carregadas via <link preconnect> no <head> do index.html. */
 :root{
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,Arial,sans-serif;
   --deep:#123c4a;
   --deep2:#0d2c37;
   --offwhite:#f6fbfc;
@@ -19,8 +21,10 @@ body{
   margin:0;
   background:var(--offwhite);
   color:var(--ink);
-  font-family:'Figtree',system-ui,Arial,sans-serif;
-  font-weight:300;
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -28,13 +32,14 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 button{font-family:inherit}
 
-.serif{font-family:'Cormorant Garamond',Georgia,serif}
-em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400}
+.serif{font-family:var(--serif)}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
 
 .kicker{
+  font-family:var(--sans);
   text-transform:uppercase;
-  letter-spacing:.32em;
-  font-size:10px;
+  letter-spacing:.14em;
+  font-size:12px;
   font-weight:500;
   color:var(--gold);
 }
@@ -49,10 +54,10 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
   transition:background .5s ease;
 }
 .brand{display:flex;align-items:center;gap:14px}
-.brand b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.12em}
+.brand b{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:.12em}
 .brand .logo{width:auto;height:26px;object-fit:contain}
-.brand small{text-transform:uppercase;letter-spacing:.22em;font-size:9px;opacity:.8;border-left:1px solid currentColor;padding-left:14px}
-.navLinks{display:flex;gap:34px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+.brand small{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:10px;opacity:.8;border-left:1px solid currentColor;padding-left:14px}
+.navLinks{display:flex;gap:34px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 .navLinks a{opacity:.85;transition:opacity .3s}
 .navLinks a:hover{opacity:1}
 
@@ -66,12 +71,12 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 .heroInner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
 .hero .kicker{color:var(--gold2)}
 .hero h1{
-  font-family:'Cormorant Garamond',serif;font-weight:400;
-  font-size:clamp(52px,9vw,132px);line-height:.92;letter-spacing:-.01em;
-  margin:20px 0 18px;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(48px,7.2vw,108px);line-height:1;letter-spacing:-.005em;
+  margin:22px 0 20px;
 }
 .hero h1 em{color:var(--gold2)}
-.heroDek{max-width:520px;font-size:16px;line-height:1.7;color:#ffffffde;font-weight:300}
+.heroDek{max-width:540px;font-size:17.5px;line-height:1.6;color:#ffffffe0;font-weight:400}
 .heroScroll{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:2;text-transform:uppercase;letter-spacing:.28em;font-size:8px;color:#ffffffcc;display:flex;flex-direction:column;align-items:center;gap:10px}
 .heroScroll i{display:block;width:1px;height:42px;background:linear-gradient(#fff,transparent)}
 
@@ -79,12 +84,12 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 .section{padding:120px 6vw}
 .sectionHead{max-width:760px}
 .sectionHead h2{
-  font-family:'Cormorant Garamond',serif;font-weight:400;
-  font-size:clamp(40px,5.5vw,78px);line-height:.98;letter-spacing:-.01em;
-  margin:18px 0 0;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(38px,4.8vw,64px);line-height:1.02;letter-spacing:-.005em;
+  margin:20px 0 0;
 }
 .sectionHead h2 em{color:var(--gold)}
-.sectionHead p{margin:22px 0 0;max-width:560px;font-size:16px;line-height:1.8;color:var(--muted)}
+.sectionHead p{margin:24px 0 0;max-width:600px;font-size:17.5px;line-height:1.65;color:var(--muted)}
 .rule{width:46px;height:2px;background:var(--gold);margin:26px 0 0}
 
 /* ---------- ROTEIRO ---------- */
@@ -105,33 +110,33 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 .dayCard:hover img{transform:scale(1.06)}
 .dayCard .cardShade{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,32,40,.9),rgba(9,32,40,.15) 55%,transparent)}
 .dayCard .cardInfo{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
-.dayCard .cardInfo span{text-transform:uppercase;letter-spacing:.24em;font-size:9px;color:var(--gold2)}
-.dayCard .cardInfo h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;margin:8px 0 14px}
-.dayCard .more{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.16em;font-size:9px;color:#fff;opacity:.85}
+.dayCard .cardInfo span{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--gold2)}
+.dayCard .cardInfo h3{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1;margin:10px 0 14px}
+.dayCard .more{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:#fff;opacity:.85}
 .dayCard .cardBody{
   position:absolute;inset:0;z-index:3;background:rgba(13,44,55,.94);
   padding:30px 26px;display:flex;flex-direction:column;justify-content:flex-end;
   opacity:0;pointer-events:none;transition:opacity .45s ease;
 }
 .dayCard.open .cardBody{opacity:1;pointer-events:auto}
-.dayCard .cardBody span{text-transform:uppercase;letter-spacing:.24em;font-size:9px;color:var(--gold2)}
-.dayCard .cardBody h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin:8px 0 16px}
-.dayCard .cardBody p{font-size:14px;line-height:1.8;color:#ffffffdd;margin:0}
+.dayCard .cardBody span{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--gold2)}
+.dayCard .cardBody h3{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;margin:10px 0 16px}
+.dayCard .cardBody p{font-size:15.5px;line-height:1.6;color:#ffffffe0;margin:0}
 .dayCard .cardBody .more{margin-top:22px}
-.dayHint{margin-top:6px;text-align:right;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:var(--muted)}
+.dayHint{margin-top:6px;text-align:right;font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--muted)}
 
 /* ---------- O NAVIO ---------- */
 .ship{background:var(--sand);display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
 .shipImg{position:relative;min-height:560px;overflow:hidden}
-.shipImg span{position:absolute;left:26px;bottom:26px;z-index:2;color:#fff;text-transform:uppercase;letter-spacing:.2em;font-size:9px;background:rgba(13,44,55,.72);padding:12px 18px;border-radius:100px}
+.shipImg span{position:absolute;left:26px;bottom:26px;z-index:2;color:#fff;font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.16em;font-size:10px;background:rgba(13,44,55,.72);padding:12px 18px;border-radius:100px}
 .shipCopy{padding:110px 6vw}
-.shipCopy h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(44px,5vw,74px);line-height:1;margin:18px 0 0}
-.shipCopy>p{margin:24px 0 0;max-width:520px;font-size:16px;line-height:1.85;color:var(--muted)}
+.shipCopy h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,60px);line-height:1.03;margin:18px 0 0}
+.shipCopy>p{margin:24px 0 0;max-width:560px;font-size:17.5px;line-height:1.65;color:var(--muted)}
 .shipStats{display:flex;flex-wrap:wrap;gap:38px;margin:40px 0}
-.shipStats b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:40px;color:var(--deep);line-height:1}
-.shipStats span{text-transform:uppercase;letter-spacing:.16em;font-size:9px;color:var(--muted)}
+.shipStats b{display:block;font-family:var(--serif);font-weight:400;font-size:44px;color:var(--deep);line-height:1}
+.shipStats span{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--muted)}
 .shipList{list-style:none;padding:0;margin:0;border-top:1px solid var(--sand2)}
-.shipList li{border-bottom:1px solid var(--sand2);padding:15px 0;font-size:13px;letter-spacing:.02em;display:flex;gap:14px;align-items:center}
+.shipList li{border-bottom:1px solid var(--sand2);padding:16px 0;font-size:15px;line-height:1.5;display:flex;gap:14px;align-items:center}
 .shipList li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex:0 0 auto}
 
 /* ---------- GALERIA ---------- */
@@ -157,11 +162,11 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
   display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s;
 }
 .cabinCard:hover{border-color:var(--gold);box-shadow:0 22px 50px rgba(18,60,74,.08)}
-.cabinCard .deck{text-transform:uppercase;letter-spacing:.18em;font-size:9px;color:var(--gold)}
-.cabinCard h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:32px;margin:12px 0 6px}
-.cabinCard .desc{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 24px}
-.cabinCard .price{margin-top:auto;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;color:var(--deep)}
-.cabinCard .price small{display:block;font-family:'Figtree',sans-serif;font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.cabinCard .deck{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--gold)}
+.cabinCard h3{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.05;margin:12px 0 8px}
+.cabinCard .desc{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 24px}
+.cabinCard .price{margin-top:auto;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--deep)}
+.cabinCard .price small{display:block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 .cabinCard.feature{background:var(--deep);border-color:var(--deep);color:#fff}
 .cabinCard.feature .deck{color:var(--gold2)}
 .cabinCard.feature .desc{color:#ffffffc0}
@@ -171,11 +176,11 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
   margin-top:34px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;
   background:var(--sand);border-radius:14px;padding:34px 38px;
 }
-.payment p{margin:0;font-size:14px;line-height:1.8;color:var(--deep)}
+.payment p{margin:0;font-size:16.5px;line-height:1.6;color:var(--deep)}
 .payment strong{font-weight:500;color:var(--deep)}
 .payment .badge{text-align:center;background:var(--gold);color:#fff;border-radius:12px;padding:22px}
-.payment .badge b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;line-height:1}
-.payment .badge span{text-transform:uppercase;letter-spacing:.14em;font-size:9px}
+.payment .badge b{display:block;font-family:var(--serif);font-weight:400;font-size:48px;line-height:1}
+.payment .badge span{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.12em;font-size:10.5px}
 
 /* ---------- DÚVIDAS ---------- */
 .faq{background:var(--sand)}
@@ -184,10 +189,10 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 .faqItem button{
   width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;
   background:transparent;border:0;padding:26px 0;cursor:pointer;text-align:left;
-  font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--deep);
+  font-family:var(--sans);font-weight:500;font-size:19px;letter-spacing:.005em;color:var(--deep);
 }
-.faqItem button b{font-family:'Figtree',sans-serif;font-weight:300;font-size:26px;color:var(--gold);flex:0 0 auto}
-.faqItem p{margin:0 0 26px;max-width:720px;font-size:15px;line-height:1.85;color:var(--muted)}
+.faqItem button b{font-family:var(--sans);font-weight:400;font-size:24px;color:var(--gold);flex:0 0 auto}
+.faqItem p{margin:0 0 26px;max-width:640px;font-size:16.5px;line-height:1.6;color:var(--muted)}
 .faqItem p{display:none}
 .faqItem.open p{display:block}
 
@@ -197,13 +202,13 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 .closing .closingShade{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,32,40,.8),rgba(9,32,40,.4))}
 .closingInner{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
 .closing .kicker{color:var(--gold2)}
-.closing h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(46px,7vw,104px);line-height:.95;margin:18px 0 34px}
+.closing h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.4vw,96px);line-height:1;margin:20px 0 34px}
 .closing h2 em{color:var(--gold2)}
 .cta{
   display:inline-flex;align-items:center;gap:16px;
-  background:var(--gold);color:#0d2c37;font-weight:500;
+  background:var(--gold);color:#0d2c37;font-family:var(--sans);font-weight:500;
   padding:18px 30px;border-radius:100px;
-  text-transform:uppercase;letter-spacing:.16em;font-size:11px;
+  text-transform:uppercase;letter-spacing:.14em;font-size:12px;
   transition:transform .3s,background .3s;
 }
 .cta:hover{transform:translateY(-2px);background:var(--gold2)}
@@ -211,9 +216,9 @@ em{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:
 /* ---------- FOOTER ---------- */
 footer{background:var(--deep2);color:#ffffffb0;padding:60px 6vw;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
 footer .brand b{color:#fff}
-footer .fContact{text-align:right;font-size:12px;line-height:1.9;letter-spacing:.04em}
+footer .fContact{text-align:right;font-size:13.5px;line-height:1.8;letter-spacing:.01em}
 footer .fContact a{color:var(--gold2)}
-footer .fContact span{display:block;text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:#ffffff70;margin-bottom:6px}
+footer .fContact span{display:block;text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:#ffffff70;margin-bottom:6px}
 
 /* ---------- MOTION ---------- */
 @keyframes slowZoom{from{transform:scale(1.06)}to{transform:scale(1.14)}}
@@ -236,4 +241,16 @@ footer .fContact span{display:block;text-transform:uppercase;letter-spacing:.2em
   .dayCard{flex-basis:80vw}
   footer{flex-direction:column;text-align:center}
   footer .fContact{text-align:center}
+  /* Composição tipográfica mobile: leitura confortável para 40+ */
+  .heroDek{font-size:16.5px}
+  .sectionHead p{font-size:16.5px;line-height:1.6}
+  .shipCopy>p{font-size:16.5px}
+  .faqItem button{font-size:18px}
+  .payment p{font-size:16px}
+}
+/* Telefones estreitos: controla escala do hero e das quebras */
+@media(max-width:400px){
+  .hero h1{font-size:52px}
+  .sectionHead h2{font-size:36px}
+  .navLinks{display:none}
 }
