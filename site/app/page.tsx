@@ -97,6 +97,37 @@ export default function Home() {
         <p className="dayHint">← arraste para ver todo o percurso →</p>
       </section>
 
+      {/* CAPÍTULO: DOURO */}
+      <section className="chapter chapterDouro">
+        <img src="/images/douro-hero-desktop-v2.png" alt="O Vale do Douro" loading="lazy" />
+        <div className="chapterShade" />
+        <div className="chapterInner">
+          <p className="kicker">Portugal · Vale do Douro</p>
+          <h2>Seguindo o Douro,<br /><em>onde o rio desenha a paisagem.</em></h2>
+          <p className="chapterDek">Socalcos, quintas centenárias e o tempo que corre devagar entre as curvas do rio.</p>
+        </div>
+      </section>
+
+      {/* TRAVESSIA: PORTUGAL → ESPANHA */}
+      <section className="crossing">
+        <div className="crossingInner">
+          <p className="kicker">A Travessia</p>
+          <div className="crossingNames"><b>Portugal</b><i /><b className="es">Espanha</b></div>
+          <p className="crossingDek">O rio cruza a fronteira e a paisagem muda de língua.</p>
+        </div>
+      </section>
+
+      {/* CAPÍTULO: SALAMANCA */}
+      <section className="chapter chapterSalamanca">
+        <img src="/images/salamanca-sol.png" alt="Salamanca" loading="lazy" />
+        <div className="chapterShade" />
+        <div className="chapterInner">
+          <p className="kicker">Espanha · Castela</p>
+          <h2>Salamanca</h2>
+          <p className="chapterDek">Séculos de história esculpidos em pedra.</p>
+        </div>
+      </section>
+
       {/* O NAVIO */}
       <section className="ship" id="barco">
         <div className="shipImg">
