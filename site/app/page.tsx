@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const WA = "https://wa.me/5521999717040?text=Ol%C3%A1%2C%20quero%20receber%20os%20detalhes%20da%20viagem%20Douro%20%26%20Salamanca%202027";
 
@@ -34,10 +34,37 @@ const faqs: [string, string][] = [
 export default function Home() {
   const [open, setOpen] = useState<number | null>(null);
   const [faq, setFaq] = useState<number | null>(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if (!reveals.length) return;
+    if (!("IntersectionObserver" in window)) {
+      reveals.forEach((el) => el.classList.add("in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+    );
+    reveals.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   return (
     <main>
-      <header className="siteNav">
+      <header className={"siteNav" + (scrolled ? " scrolled" : "")}>
         <a className="brand" href="#topo"><img className="logo" src="/images/logo-qimo.png" alt="QiMO" /><small>Douro & Salamanca</small></a>
         <nav className="navLinks">
           <a href="#roteiro">Roteiro</a>
@@ -65,7 +92,7 @@ export default function Home() {
 
       {/* ROTEIRO */}
       <section className="section itinerary" id="roteiro">
-        <div className="sectionHead">
+        <div className="sectionHead" data-reveal>
           <p className="kicker">O Roteiro</p>
           <h2>O rio conduz <em>a viagem.</em></h2>
           <p>Oito dias do Porto à fronteira espanhola — e de volta, por uma paisagem que nunca se repete. Toque em cada dia para conhecer.</p>
@@ -101,7 +128,7 @@ export default function Home() {
       <section className="chapter chapterDouro">
         <img src="/images/douro-hero-desktop-v2.png" alt="O Vale do Douro" loading="lazy" />
         <div className="chapterShade" />
-        <div className="chapterInner">
+        <div className="chapterInner" data-reveal>
           <p className="kicker">Portugal · Vale do Douro</p>
           <h2>Seguindo o Douro,<br /><em>onde o rio desenha a paisagem.</em></h2>
           <p className="chapterDek">Socalcos, quintas centenárias e o tempo que corre devagar entre as curvas do rio.</p>
@@ -110,7 +137,7 @@ export default function Home() {
 
       {/* TRAVESSIA: PORTUGAL → ESPANHA */}
       <section className="crossing">
-        <div className="crossingInner">
+        <div className="crossingInner" data-reveal>
           <p className="kicker">A Travessia</p>
           <div className="crossingNames"><b>Portugal</b><i /><b className="es">Espanha</b></div>
           <p className="crossingDek">O rio cruza a fronteira e a paisagem muda de língua.</p>
@@ -121,7 +148,7 @@ export default function Home() {
       <section className="chapter chapterSalamanca">
         <img src="/images/salamanca-sol.png" alt="Salamanca" loading="lazy" />
         <div className="chapterShade" />
-        <div className="chapterInner">
+        <div className="chapterInner" data-reveal>
           <p className="kicker">Espanha · Castela</p>
           <h2>Salamanca</h2>
           <p className="chapterDek">Séculos de história esculpidos em pedra.</p>
@@ -134,7 +161,7 @@ export default function Home() {
           <img src="/images/adega-degustacao.png" alt="Interior do Emerald Radiance" loading="lazy" />
           <span>Star-Ship de luxo fluvial</span>
         </div>
-        <div className="shipCopy">
+        <div className="shipCopy" data-reveal>
           <p className="kicker">O Navio</p>
           <h2>Emerald Radiance</h2>
           <p>Um Star-Ship boutique concebido especialmente para o Rio Douro, unindo design contemporâneo, serviço atento e conforto absoluto. A luz natural, as vistas do rio e o ritmo tranquilo tornam o próprio percurso parte essencial da experiência.</p>
@@ -155,7 +182,7 @@ export default function Home() {
 
       {/* GALERIA */}
       <section className="section gallery" id="galeria">
-        <div className="sectionHead">
+        <div className="sectionHead" data-reveal>
           <p className="kicker">Edições Anteriores</p>
           <h2>Do Atlântico <em>ao Douro.</em></h2>
           <p>Depois de duas edições inesquecíveis navegando pelo Adriático, a QiMO leva sua curadoria ao coração de Portugal. Foram dois anos reunindo mais de 300 viajantes em encontros marcados por exclusividade, cultura e celebração.</p>
@@ -171,7 +198,7 @@ export default function Home() {
 
       {/* VALORES */}
       <section className="section cabins" id="valores">
-        <div className="sectionHead">
+        <div className="sectionHead" data-reveal>
           <p className="kicker">Cabines e Investimento</p>
           <h2>Sua casa <em>no rio.</em></h2>
           <p>Categorias distribuídas pelos decks do Emerald Radiance. Valores por suíte dupla, para duas pessoas.</p>
@@ -195,7 +222,7 @@ export default function Home() {
 
       {/* DÚVIDAS */}
       <section className="section faq" id="duvidas">
-        <div className="sectionHead">
+        <div className="sectionHead" data-reveal>
           <p className="kicker">Antes de Embarcar</p>
           <h2>Principais <em>dúvidas.</em></h2>
         </div>
@@ -215,7 +242,7 @@ export default function Home() {
       <section className="closing">
         <img src="/images/amigos-douro.png" alt="Encontros à beira do Douro" loading="lazy" />
         <div className="closingShade" />
-        <div className="closingInner">
+        <div className="closingInner" data-reveal>
           <p className="kicker">QiMO · Douro 2027</p>
           <h2>Vem sentir <em>o inesquecível?</em></h2>
           <a className="cta" href={WA} target="_blank" rel="noreferrer">Falar com a curadoria ↗</a>

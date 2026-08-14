@@ -25,3 +25,31 @@ document.querySelectorAll('#faqList .faqItem button').forEach(function (btn) {
     }
   });
 });
+
+// Nav: condensa ao rolar para além do hero
+(function () {
+  var nav = document.querySelector('.siteNav');
+  if (!nav) return;
+  var onScroll = function () {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// Revelações sutis ao rolar (fade + leve subida)
+(function () {
+  var reveals = document.querySelectorAll('[data-reveal]');
+  if (!reveals.length) return;
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+  reveals.forEach(function (el) { io.observe(el); });
+})();
